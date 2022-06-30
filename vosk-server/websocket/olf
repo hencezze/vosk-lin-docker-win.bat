@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo Введите путь к файлу 
+read var
+python3 test.py $var >> 123.txt
+cat 123.txt | grep -o -P '(?<="text" : ").*(?=")'
+rm 123.txt

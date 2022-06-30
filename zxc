@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo Введите имя файла
+read var
+lame --decode $var.mp3
+python3 /home/ub/vosk-server/websocket/test.py /home/ub/$var.wav >> 123.txt
+cat 123.txt | grep -o -P '(?<="text" : ").*(?=")'
+rm 123.txt
+rm $var.mp3 && rm $var.wav
